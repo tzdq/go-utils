@@ -1,9 +1,10 @@
 package crypt
 
 import (
-	"github.com/tzdq/go-utils/file"
 	"reflect"
 	"testing"
+
+	"github.com/tzdq/go-utils/file"
 )
 
 // "这是一个测试rsa的字符串，用于测试文件，rsa np!!!"
