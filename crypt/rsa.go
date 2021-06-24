@@ -1,13 +1,13 @@
 package crypt
 
 import (
-	"GoUtils/file"
 	"crypto"
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
 	"encoding/pem"
 	"errors"
+	"go-utils/file"
 )
 
 // RSAGenKeyToFile Generate public and private keys and save them in files

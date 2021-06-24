@@ -1,8 +1,8 @@
 package timex
 
 import (
-	"GoUtils/mathx"
 	"fmt"
+	"go-utils/mathx"
 	"strings"
 	"time"
 )
