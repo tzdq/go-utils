@@ -2,7 +2,7 @@ package timex
 
 import (
 	"fmt"
-	"go-utils/mathx"
+	"github.com/tzdq/go-utils/mathx"
 	"strings"
 	"time"
 )

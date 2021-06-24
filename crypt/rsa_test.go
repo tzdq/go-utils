@@ -1,7 +1,7 @@
 package crypt
 
 import (
-	"go-utils/file"
+	"github.com/tzdq/go-utils/file"
 	"reflect"
 	"testing"
 )

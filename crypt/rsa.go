@@ -7,7 +7,7 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"errors"
-	"go-utils/file"
+	"github.com/tzdq/go-utils/file"
 )
 
 // RSAGenKeyToFile Generate public and private keys and save them in files
