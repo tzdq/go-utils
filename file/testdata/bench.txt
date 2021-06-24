@@ -1,0 +1,27 @@
+goos: windows
+goarch: amd64
+pkg: GoUtils/file
+cpu: Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz
+BenchmarkWriteFile-8          	     238	  25487837 ns/op	    1720 B/op	      10 allocs/op
+BenchmarkWriteFile-8          	     229	  27331270 ns/op	    1720 B/op	      10 allocs/op
+BenchmarkWriteFile-8          	     259	  21023503 ns/op	    1720 B/op	      10 allocs/op
+BenchmarkWriteFile4BufIO-8    	   20406	    313865 ns/op	    5496 B/op	      10 allocs/op
+BenchmarkWriteFile4BufIO-8    	   18927	    316828 ns/op	    5496 B/op	      10 allocs/op
+BenchmarkWriteFile4BufIO-8    	   18727	    323634 ns/op	    5496 B/op	      10 allocs/op
+BenchmarkWriteFile4OS-8       	   19573	    297161 ns/op	    1720 B/op	      10 allocs/op
+BenchmarkWriteFile4OS-8       	   18606	    311178 ns/op	    1720 B/op	      10 allocs/op
+BenchmarkWriteFile4OS-8       	   17253	    301209 ns/op	    1720 B/op	      10 allocs/op
+BenchmarkWriteFile4IOUtil-8   	   10000	    507946 ns/op	    1016 B/op	       4 allocs/op
+BenchmarkWriteFile4IOUtil-8   	   10000	    518026 ns/op	    1016 B/op	       4 allocs/op
+BenchmarkWriteFile4IOUtil-8   	   12345	    487224 ns/op	    1016 B/op	       4 allocs/op
+BenchmarkReadAll-8            	  138621	     52751 ns/op	    3512 B/op	       6 allocs/op
+BenchmarkReadAll-8            	  138661	     44299 ns/op	    3512 B/op	       6 allocs/op
+BenchmarkReadAll-8            	  126439	     44622 ns/op	    3512 B/op	       6 allocs/op
+BenchmarkReadByBytes-8        	  144975	     42066 ns/op	    6136 B/op	       6 allocs/op
+BenchmarkReadByBytes-8        	  150878	     40894 ns/op	    6136 B/op	       6 allocs/op
+BenchmarkReadByBytes-8        	  149854	     40076 ns/op	    6136 B/op	       6 allocs/op
+BenchmarkReadFile-8           	1000000000	                        0 B/op	           0 allocs/op
+BenchmarkReadFile-8           	1000000000	                        0 B/op	           0 allocs/op
+BenchmarkReadFile-8           	1000000000	                        0 B/op	           0 allocs/op
+PASS
+ok  	GoUtils/file	145.766s
