@@ -2,9 +2,10 @@ package timex
 
 import (
 	"fmt"
-	"github.com/tzdq/go-utils/mathx"
 	"strings"
 	"time"
+
+	"github.com/tzdq/go-utils/mathx"
 )
 
 const (
@@ -79,12 +80,12 @@ func GetNowTime() time.Time {
 
 // GetNowYMD 获取当前时间的年月日
 func GetNowYMD() string {
-	return GetNowTime().Format(HMSFormatWithSep)
+	return GetNowTime().Format(YMDFormatWithSep)
 }
 
 // GetNowHMS 获取当前时间的时分秒
 func GetNowHMS() string {
-	return GetNowTime().Format(YMDFormatWithSep)
+	return GetNowTime().Format(HMSFormatWithSep)
 }
 
 // IsLeapYear 判断是否是闰年
@@ -138,21 +139,21 @@ func CalcIntervalHours(begin, end int64) int64 {
 	return mathx.AbsInt64(end-begin) / SecondsPerHours
 }
 
-// DayBeginTime 获取当天开始时间
+// DayBeginTime 获取指定时间当天开始时间
 func DayBeginTime(t time.Time) time.Time {
 	y, m, d := t.Date()
 	n := time.Date(y, m, d, 0, 0, 0, 0, time.Local)
 	return n
 }
 
-// DayEndTime 获取当天结束时间
+// DayEndTime 获取指定时间当天结束时间
 func DayEndTime(t time.Time) time.Time {
 	y, m, d := t.Date()
 	n := time.Date(y, m, d, 23, 59, 59, 999999999, time.Local)
 	return n
 }
 
-// DaySecs 获取指定时间是当天的第几秒
+// DaySecs 判断指定时间是当天的第几秒，当天开始时间为当天的第0秒，当天结束时间为当天的第86399秒
 func DaySecs(t time.Time) int64 {
 	return t.Unix() - DayBeginTime(t).Unix()
 }
