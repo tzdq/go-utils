@@ -184,3 +184,9 @@ type TimeCounter struct {
 
 ## 5. cache
 本地缓存，实现了一个支持lru、支持设置过期时间和文件读写的本地缓存
+
+## 6. gzip
+实现了gzip压缩、解压缩相关的函数
+
+- ZipCompress：gzip压缩
+- ZipDecompress：gzip解压缩

@@ -39,6 +39,21 @@ func RandIntRange(min, max int) int {
 	return RandIntN(tmpMax-tmpMin) + tmpMin
 }
 
+// RandFloats return a non_negative random float,range:[min, max)
+// min and max are not necessarily in ascending order
+func RandFloats(min, max float64) float64 {
+	tmpMin, tmpMax := min, max
+	if max < min {
+		tmpMin, tmpMax = max, min
+	}
+	if tmpMax <= 0 {
+		return 0
+	} else if tmpMin < 0 {
+		tmpMin = 0
+	}
+	return tmpMin + rand.Float64()*(tmpMax-tmpMin)
+}
+
 // RandBytes return a random byte slice of the specified length, each byte has a value range of [0x00,0xff]
 func RandBytes(length uint32) []byte {
 	b := make([]byte, length)

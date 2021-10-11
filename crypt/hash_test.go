@@ -318,12 +318,12 @@ func TestTime33(t *testing.T) {
 		want uint32
 	}{
 		{
-			name: "Time33",
+			name: "#1",
 			args: args{hashCommonTest},
 			want: 2015120221,
 		},
 		{
-			name: "Time33",
+			name: "#2",
 			args: args{[]byte("this is a test string")},
 			want: 1917303537,
 		},
@@ -452,6 +452,36 @@ func TestHashUInt32(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := HashUInt32(tt.args.data, tt.args.ht); got != tt.want {
 				t.Errorf("HashUInt32(%d) = %v, want %v", tt.args.ht, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestJumpConsistentHash(t *testing.T) {
+	type args struct {
+		key        uint64
+		numBuckets int32
+	}
+	tests := []struct {
+		name string
+		args args
+		want int32
+	}{
+		{
+			name: "#1",
+			args: args{256, 1024},
+			want: 520,
+		},
+		{
+			name: "#2",
+			args: args{256, -1},
+			want: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := JumpConsistentHash(tt.args.key, tt.args.numBuckets); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("JumpConsistentHash() = %v, want %v", got, tt.want)
 			}
 		})
 	}

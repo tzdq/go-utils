@@ -226,3 +226,19 @@ func toBytes(i uint32) []byte {
 	var in []byte
 	return append(in, byte(i>>24), byte(i>>16), byte(i>>8), byte(i))
 }
+
+// JumpConsistentHash return a hash value in the range of [0,numBuckets) through jump consistent hash algorithm
+// If numBuckets is less than or equal to 0,the default value of 1 is used
+func JumpConsistentHash(key uint64, numBuckets int32) int32 {
+	if numBuckets <= 0 {
+		numBuckets = 1
+	}
+	b, j := int64(-1), int64(0)
+	for j < int64(numBuckets) {
+		b = j
+		key = key*2862933555777941757 + 1
+		j = int64(float64(b+1) * (float64(int64(1)<<31) / float64((key>>33)+1)))
+	}
+
+	return int32(b)
+}
