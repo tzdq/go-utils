@@ -247,7 +247,7 @@ func TestMd5File(t *testing.T) {
 		{
 			name: "Md5File",
 			args: args{"./random.go"},
-			want: "d5ded8075552012f35ed146087255492",
+			want: "6bf5c32310ee93a54e98968259669f6d",
 		},
 	}
 	for _, tt := range tests {
