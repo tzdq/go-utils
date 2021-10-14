@@ -182,11 +182,12 @@ type TimeCounter struct {
 - GetUs：返回从开始到现在的时间间隔(us)
 - GetNs：返回从开始到现在的时间间隔(ns)
 
-## 5. cache
-本地缓存，实现了一个支持lru、支持设置过期时间和文件读写的本地缓存
+## 5. compress
+实现了gzip、zlib、frate三种压缩、解压缩相关的函数
 
-## 6. gzip
-实现了gzip压缩、解压缩相关的函数
-
-- ZipCompress：gzip压缩
-- ZipDecompress：gzip解压缩
+- GzipCompress：gzip压缩
+- GzipDecompress：gzip解压缩 
+- ZlibCompress：zlib压缩
+- ZlibDecompress：zlib解压缩
+- FlateCompress：flate压缩
+- FlateDecompress：flate解压缩
