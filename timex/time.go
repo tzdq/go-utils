@@ -8,33 +8,32 @@ import (
 	"github.com/tzdq/go-utils/mathx"
 )
 
+// 转换常量参数
 const (
 	SecondsPerDay   = 86400
 	HoursPerDay     = 24
 	SecondsPerHours = 3600
-
-	// YFormat 年月日格式 有14种格式，这里列举常用的三种
-	YFormat          = "2006"
-	YMFormat         = "200601"            //年月
-	YMDFormat        = "20060102"          //年月日
-	YMDFormatWithSep = "2006-01-02"        //年-月-日
-	YMDHFormat       = "20060102 03 PM"    //年与日 时
-	YMDHMFormat      = "20060102 03:04 PM" //年与日 时:分
-
-	// 时分秒格式
-	HMSFormat        = "150405"
-	HMFormat         = "1504"
-	HMSFormatWithSep = "15:04:05"
-
-	// 时间格式
-	DateTimeFormat      = "2006-01-02 15:04:05"
-	DateTimeFormatMilli = "2006-01-02 15:04:05.000"
-	DateTimeFormatMicro = "2006-01-02 15:04:05.000000"
-	DateTimeFormatNano  = "2006-01-02 15:04:05.000000000"
 )
 
+// 年月日、时分秒格式
 const (
-	// 比较类型
+	YFormat             = "2006"
+	YMFormat            = "200601"                        //年月
+	YMDFormat           = "20060102"                      //年月日
+	YMDFormatWithSep    = "2006-01-02"                    //年-月-日
+	YMDHFormat          = "20060102 03 PM"                //年与日 时
+	YMDHMFormat         = "20060102 03:04 PM"             //年与日 时:分
+	HMSFormat           = "150405"                        // 时分秒格式
+	HMFormat            = "1504"                          // 时分格式
+	HMSFormatWithSep    = "15:04:05"                      // 时:分:秒格式
+	DateTimeFormat      = "2006-01-02 15:04:05"           // 时间格式
+	DateTimeFormatMilli = "2006-01-02 15:04:05.000"       // 时间格式带毫秒
+	DateTimeFormatMicro = "2006-01-02 15:04:05.000000"    // 时间格式带上微秒
+	DateTimeFormatNano  = "2006-01-02 15:04:05.000000000" // 时间格式带上纳秒
+)
+
+// 时间比较类型
+const (
 	IsOneYear = iota
 	IsOneMonth
 	IsOneWeek

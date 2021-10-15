@@ -36,6 +36,7 @@ hash函数，封装了go提供的所有hash函数和增加了一些函数，有�
 - Time33：Time33哈希算法
 - HashUInt32：使用指定的hash函数对传入的数据进行hash，返回uint32，目前hash算法函数只支持HtFnv32, HtFnvA32, HtAdler32, HtCrc32, HtTime33。
 - HashUInt64：使用指定的hash函数对传入的数据进行hash，返回uint64，目前hash算法函数只支持HtFnv32, HtFnvA32, HtAdler32, HtCrc32, HtTime33,HtFnv64,HtFnvA64,HtCrc64ISO,HtCrc64ECMA
+- JumpConsistentHash：jump consistent hash算法，返回uint32
 
 ### 1.2 random
 一些随机函数，包含整型、整型范围、[]byte和字符串类型，有如下函数：
@@ -191,3 +192,13 @@ type TimeCounter struct {
 - ZlibDecompress：zlib解压缩
 - FlateCompress：flate压缩
 - FlateDecompress：flate解压缩
+
+## 6. convert
+类型转换相关的函数
+
+- ToString：interface{}转换成字符串
+- ToBool：interface{}转换成bool
+- ToFloat32：interface{}转换成float32,对于string、[]byte、float64等类型的数据而言，如果转换的数据超出math.MaxFloat32,会报错
+- ToFloat64：interface{}转换成float64，对于string、[]byte等类型的数据而言，如果转换的数据超出math.MaxFloat64,会报错；对于float32数据而言，使用float64可能存在精度丢失，目前使用strconv.ParseFloat(fmt.Sprintf("%f", f), 64)，暂时还没有发现精度丢失的情况
+- ToInt**：interface{}转换成int64、int32、int16、int8、int等类型，如果转换的数据超出math.MaxInt**，转换的结果有问题，不会报错；
+- ToUint**：interface{}转换成uint64、uint32、uint16、uint8、uint等类型，对于负数，会报错；对于int**、uint**、float32、float64等类型的数据而言，如果转换的数据超出math.MaxUint**，转换的结果有问题，不会报错；而string、[]byte等类型的数据会报错
