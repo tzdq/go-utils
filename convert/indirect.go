@@ -6,7 +6,7 @@ import (
 	"reflect"
 )
 
-// indirect 如果i是指针，返回多次解引用后的基础类型，反正直接返回i或nil
+// indirect 如果i是指针，返回多次解引用后的基础类型，反之直接返回i或nil
 func indirect(i interface{}) interface{} {
 	if i == nil {
 		return nil
@@ -19,6 +19,25 @@ func indirect(i interface{}) interface{} {
 		v = v.Elem()
 	}
 	return v.Interface()
+}
+
+// indirectTypeValue 如果i是指针，返回多次解引用后的reflect.Type和reflect.Value，反之直接返回
+func indirectTypeValue(i interface{}) (rt reflect.Type, rv reflect.Value) {
+	if i == nil {
+		return
+	}
+	rt = reflect.TypeOf(i)
+	rv = reflect.ValueOf(i)
+	if rt.Kind() != reflect.Ptr {
+		return
+	}
+	for rv.Kind() == reflect.Ptr {
+		if rv.IsNil() {
+			return
+		}
+		rv = rv.Elem()
+	}
+	return indirectTypeValue(rv.Interface())
 }
 
 // indirectStringOrError 如果i是指针，返回多次解引用后的基础类型或fmt.Stringer或错误实现
@@ -44,20 +63,23 @@ func typeError(i interface{}, t string) error {
 
 // typeError 函数中t参数
 const (
-	strUint    = "uint"
-	strUint8   = "uint8"
-	strUint16  = "uint16"
-	strUint32  = "uint32"
-	strUint64  = "uint64"
-	strInt     = "int"
-	strInt8    = "int8"
-	strInt16   = "int16"
-	strInt32   = "int32"
-	strInt64   = "int64"
-	strFloat32 = "float32"
-	strFloat64 = "float64"
-	strBool    = "bool"
-	strString  = "string"
+	strUint        = "uint"
+	strUint8       = "uint8"
+	strUint16      = "uint16"
+	strUint32      = "uint32"
+	strUint64      = "uint64"
+	strInt         = "int"
+	strInt8        = "int8"
+	strInt16       = "int16"
+	strInt32       = "int32"
+	strInt64       = "int64"
+	strFloat32     = "float32"
+	strFloat64     = "float64"
+	strBool        = "bool"
+	strString      = "string"
+	strSlice       = "[]interface{}"
+	strStringSlice = "[]string"
+	strIntSlice    = "[]int"
 )
 
 const epsilon = 1e-16

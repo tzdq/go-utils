@@ -64,12 +64,12 @@ func complexToString(real, imag float64) string {
 	// a+bi 如果a等于0 纯虚数  b为0实数 特殊情况a b都为0
 	if isEqual(real, 0) {
 		if !isEqual(imag, 0) { //纯虚数
-			return i + "i"
+			return fmt.Sprintf("%si", i)
 		}
 		return "0" //0+0i 实数
 	}
 	if isEqual(imag, 0) {
 		return r
 	}
-	return r + "+" + i + "i"
+	return fmt.Sprintf("%s+%si", r, i)
 }

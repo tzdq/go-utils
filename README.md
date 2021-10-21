@@ -202,3 +202,5 @@ type TimeCounter struct {
 - ToFloat64：interface{}转换成float64，对于string、[]byte等类型的数据而言，如果转换的数据超出math.MaxFloat64,会报错；对于float32数据而言，使用float64可能存在精度丢失，目前使用strconv.ParseFloat(fmt.Sprintf("%f", f), 64)，暂时还没有发现精度丢失的情况
 - ToInt**：interface{}转换成int64、int32、int16、int8、int等类型，如果转换的数据超出math.MaxInt**，转换的结果有问题，不会报错；
 - ToUint**：interface{}转换成uint64、uint32、uint16、uint8、uint等类型，对于负数，会报错；对于int**、uint**、float32、float64等类型的数据而言，如果转换的数据超出math.MaxUint**，转换的结果有问题，不会报错；而string、[]byte等类型的数据会报错
+- ToSlice：interface{} 转换成[]interface{}
+- To***Slice：interface{} 转换成[]\***
