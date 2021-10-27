@@ -204,3 +204,4 @@ type TimeCounter struct {
 - ToUint**：interface{}转换成uint64、uint32、uint16、uint8、uint等类型，对于负数，会报错；对于int**、uint**、float32、float64等类型的数据而言，如果转换的数据超出math.MaxUint**，转换的结果有问题，不会报错；而string、[]byte等类型的数据会报错
 - ToSlice：interface{} 转换成[]interface{}
 - To***Slice：interface{} 转换成[]\***
+- ToTime：interface{}转换成本地时区的时间，部分字符串在转换时会出现+0000 +0000而不是预期的+0000 UTC，此时需要调用.UTC()，常见于尾部包含类似-0700或-07:00格式的layout，例如RFC822Z、RFC3339

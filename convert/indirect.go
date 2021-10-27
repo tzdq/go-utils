@@ -80,6 +80,7 @@ const (
 	strSlice       = "[]interface{}"
 	strStringSlice = "[]string"
 	strIntSlice    = "[]int"
+	strTime        = "time.Time"
 )
 
 const epsilon = 1e-16
